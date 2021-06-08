@@ -1,5 +1,6 @@
+<h1>Your greetings:</h1>
 {% if greeting_list %}
-    <ul>
+    <ul type="square">
     {% for greeting in greeting_list %}
         <li>
           {{ greeting.message }}
@@ -12,3 +13,5 @@
     <p>No greetings are available.</p>
 {% endif %}
 <a href="{% url 'greetings:create' %}">Create a New Greeting</a>
+<br>
+<a href="{% url 'greetings:examples' %}">See some example greetings for inspiration</a>
