@@ -1,3 +1,7 @@
+<div class="create-article">
+    <h2>Create an awesome greeting</h2>
+</div>
+
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Save">
