@@ -1,6 +1,9 @@
 from django.views import generic
 from django.urls import reverse_lazy
 from .models import Greeting
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 
 class IndexView(generic.ListView):
     template_name = 'greetings/index.html'
@@ -10,6 +13,9 @@ class IndexView(generic.ListView):
         """Return the all greetings."""
         return Greeting.objects.all()
 
+
+#@login_required(login_url="/accounts/login/")
+@method_decorator(login_required, name='dispatch')
 class CreateView(generic.edit.CreateView):
     template_name = 'greetings/create.html'
     model = Greeting
